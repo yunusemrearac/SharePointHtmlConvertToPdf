@@ -1,0 +1,1 @@
+﻿This project file "App_Data" folder copy to SharePoint site IIS VirtualDirectories folder.

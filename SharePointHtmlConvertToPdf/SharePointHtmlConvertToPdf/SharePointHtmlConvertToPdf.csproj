@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{82F8AEB4-E1E8-40B3-ADBE-BBEE43B3AA01}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharePointHtmlConvertToPdf</RootNamespace>
+    <AssemblyName>SharePointHtmlConvertToPdf</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>16.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <MinimumOfficeToolsVersion>14.5</MinimumOfficeToolsVersion>
+    <SandboxedSolution>False</SandboxedSolution>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NReco.PdfGenerator, Version=1.1.15.0, Culture=neutral, PublicKeyToken=231663d50a41b451, processorArchitecture=MSIL">
+      <HintPath>..\packages\NReco.PdfGenerator.1.1.15\lib\net20\NReco.PdfGenerator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SharePointHtmlConvertToPdf\SharePointHtmlConvertToPdf.cs" />
+    <Compile Include="SharePointHtmlConvertToPdf\SharePointHtmlConvertToPdfUserControl.ascx.cs">
+      <DependentUpon>SharePointHtmlConvertToPdfUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SharePointHtmlConvertToPdf\SharePointHtmlConvertToPdfUserControl.ascx.designer.cs">
+      <DependentUpon>SharePointHtmlConvertToPdfUserControl.ascx.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Features\SharePointHtmlConvertToPdf\SharePointHtmlConvertToPdf.feature">
+      <FeatureId>{9af52378-5615-42fb-849c-98a170c1bd60}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="packages.config" />
+    <None Include="Package\Package.package">
+      <PackageId>{211fcd3e-336b-428b-8bf1-293d8261bf16}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="SharePointHtmlConvertToPdf\SharePointHtmlConvertToPdf.webpart" />
+    <None Include="SharePointHtmlConvertToPdf\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{50b36bd2-18ac-48af-a2c8-062768da1492}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="App_Data\wkhtmltopdf\api-ms-win-crt-conio-l1-1-0.dll" />
+    <Content Include="App_Data\wkhtmltopdf\api-ms-win-crt-convert-l1-1-0.dll" />
+    <Content Include="App_Data\wkhtmltopdf\api-ms-win-crt-environment-l1-1-0.dll" />
+    <Content Include="App_Data\wkhtmltopdf\api-ms-win-crt-filesystem-l1-1-0.dll" />
+    <Content Include="App_Data\wkhtmltopdf\api-ms-win-crt-heap-l1-1-0.dll" />
+    <Content Include="App_Data\wkhtmltopdf\api-ms-win-crt-locale-l1-1-0.dll" />
+    <Content Include="App_Data\wkhtmltopdf\api-ms-win-crt-math-l1-1-0.dll" />
+    <Content Include="App_Data\wkhtmltopdf\api-ms-win-crt-multibyte-l1-1-0.dll" />
+    <Content Include="App_Data\wkhtmltopdf\api-ms-win-crt-private-l1-1-0.dll" />
+    <Content Include="App_Data\wkhtmltopdf\api-ms-win-crt-process-l1-1-0.dll" />
+    <Content Include="App_Data\wkhtmltopdf\api-ms-win-crt-runtime-l1-1-0.dll" />
+    <Content Include="App_Data\wkhtmltopdf\api-ms-win-crt-stdio-l1-1-0.dll" />
+    <Content Include="App_Data\wkhtmltopdf\api-ms-win-crt-string-l1-1-0.dll" />
+    <Content Include="App_Data\wkhtmltopdf\api-ms-win-crt-time-l1-1-0.dll" />
+    <Content Include="App_Data\wkhtmltopdf\api-ms-win-crt-utility-l1-1-0.dll" />
+    <Content Include="App_Data\wkhtmltopdf\concrt140.dll" />
+    <Content Include="App_Data\wkhtmltopdf\msvcp140.dll" />
+    <Content Include="App_Data\wkhtmltopdf\ucrtbase.dll" />
+    <Content Include="App_Data\wkhtmltopdf\vcruntime140.dll" />
+    <Content Include="App_Data\wkhtmltopdf\wkhtmltopdf.exe" />
+    <Content Include="Features\SharePointHtmlConvertToPdf\SharePointHtmlConvertToPdf.Template.xml">
+      <DependentUpon>SharePointHtmlConvertToPdf.feature</DependentUpon>
+    </Content>
+    <Content Include="ReadMe.txt" />
+    <Content Include="SharePointHtmlConvertToPdf\Elements.xml" />
+    <Content Include="SharePointHtmlConvertToPdf\SharePointHtmlConvertToPdfUserControl.ascx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>
